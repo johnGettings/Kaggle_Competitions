@@ -8,7 +8,7 @@ import tensorflow as tf
 from keras.utils.image_utils import load_img, img_to_array # loading image to PIL, then PIL to numpy
 from keras import models, regularizers, layers, optimizers, losses, metrics
 from keras.models import Sequential, Model
-from keras.optimizers import RMSprop, SGD
+from keras.optimizers import RMSprop, SGD, Adam
 from keras.layers import Input, Dense, Conv2D, MaxPool2D, Dropout, Flatten, AveragePooling2D
 from keras.utils import np_utils, to_categorical
 from keras.preprocessing.image import ImageDataGenerator
@@ -41,10 +41,8 @@ head_model = Dense(120, activation='softmax')(head_model)
 
 model = Model(inputs=base_model.input, outputs=head_model)
 
-# model.summary()
-
 # Categorical crossentropy loss should be used when determining labels from many classes
 #    and only if the output values are one hot encoded
 # Adam optimizer should be your default choice as a general purpose optimizer 
-optimizer = optimizers.adam(lr=0.001, beta_1=0.9, beta_2=0.999)
+optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999)
 model.compile(loss="categorical_crossentropy", optimizer=optimizer, metrics=["accuracy"])
