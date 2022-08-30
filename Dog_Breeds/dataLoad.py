@@ -1,13 +1,3 @@
-# There are a few options for your data pipeline
-# For small dataset, load into numpy array and perform normalization techniques manually
-
-# Or you can use tf/ keras pipelines:
-    #tf.keras.preprocessing.image.ImageDataGenerator (Very slow compared to others)
-    #tf.keras.preprocessing.image_dataset_from_directory (Recommended. Generates a tf.data.Dataset from image files in a directory.)
-    #tf.data.Dataset with image files (Best balance of speed & complexity)
-    #tf.data.Dataset with TFRecords (Optimal but complex)
-# See: https://towardsdatascience.com/what-is-the-best-input-pipeline-to-train-image-classification-models-with-tf-keras-eb3fe26d3cc5
-
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
