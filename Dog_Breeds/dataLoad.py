@@ -27,7 +27,7 @@ def load(DATA_ROOT):
     
     return(oh_input, img_paths)
 
-def read_and_decode(filename, label, IMG_SIZE):
+def read_and_decode(filename, label):
     # Returns a tensor with byte values of the entire contents of the input filename.
     img = tf.io.read_file(filename)
     # Decoding raw JPEG tensor data into 3D (RGB) uint8 pixel value tensor

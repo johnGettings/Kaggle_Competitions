@@ -8,12 +8,12 @@ import tensorflow as tf
 from tensorflow import keras
 from keras import models, regularizers, layers, optimizers, losses, metrics
 from keras.models import Sequential, Model
-from tensorflow.keras.optimizers import SGD, Adam
+from tensorflow.keras.optimizers import SGD
 from keras.layers import Dense, MaxPool2D, Dropout, Flatten, AveragePooling2D
 from keras.applications.resnet import ResNet50
 
 
-def build_model():
+def build_model(model_weights=None):
     # Augmentation Layers
     data_augmentation = keras.Sequential(
         [
@@ -47,6 +47,10 @@ def build_model():
     model.layers[2].trainable = False
 
     optimizer = SGD(learning_rate=0.01, momentum=0.9)
+    
+    if model_weights is not None:
+        model.load_weights(model_weights)
+            
     model.compile(loss="categorical_crossentropy", optimizer=optimizer, metrics=['accuracy'])
 
     return model

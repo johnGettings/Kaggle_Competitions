@@ -1,9 +1,9 @@
 kaggle==1.5.12
-keras==2.8.0
-matplotlib==3.5.2
-numpy==1.23.1
-pandas==1.4.3
-Pillow==9.2.0
-scikit-learn==1.1.2
-scipy==1.9.0
 tensorflow==2.8.0
+keras==2.8.0
+matplotlib
+numpy
+pandas
+Pillow
+scikit-learn
+scipy
